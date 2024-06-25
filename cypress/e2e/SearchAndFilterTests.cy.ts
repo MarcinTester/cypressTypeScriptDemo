@@ -30,6 +30,13 @@ describe("Login and registration tests", () => {
   
   it("Filter products", () => {
     homePage.goToProductPage();
+    productsPage.searchProduct(testData.product[0]);
+    productsPage.clickSearchProduct();
+
+    productsPage.elements
+      .productName()
+      .should("not.be.visible")
+      .and("have.text", testData.product[0]);
 
   })
 });
