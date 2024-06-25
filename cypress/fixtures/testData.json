@@ -1,0 +1,17 @@
+{
+  "email": "61559@gmial.com",
+  "password": "test1234!",
+  "firstName": "John",
+  "lastName": "Nowak",
+  "address": "Test Address 1",
+  "state": "Test state",
+  "zipCode": "99-999",
+  "city": "New York",
+  "phoneNumber": "999 999 999 999 999",
+  "company": "test company name",
+  "country": ["India", "United States", "Canada", "Australia", "Israel", "New Zealand", "Singapore"],
+  "accountCreatedHeader": "Account Created!",
+  "product": ["Soft Stretch Jeans"],
+  "productAddedPopUpTitle": "Added!",
+  "productAddedPopUpMessage": "Your product has been added to cart."
+}
