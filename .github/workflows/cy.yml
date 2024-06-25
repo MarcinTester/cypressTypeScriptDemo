@@ -17,7 +17,7 @@ jobs:
         run: npm install
       # Step 4: Run custom npm script
       - name: Run Cypress tests in Chrome
-        run: npx cypress run
+        run: npm run uiTests-chrome
       - name: Store Cypress test results
         if: always()
         uses: actions/upload-artifact@v4

@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "uiTests": "npx cypress run --spec 'cypress/e2e/*' --headed",
+    "uiTests-chrome": "npx cypress run --browser chrome --spec 'cypress/e2e/*'",
+    "uiTests-firefox": "npx cypress run --browser firefox --spec 'cypress/e2e/*'",
+    "uiTests-edge": "npx cypress run --browser edge --spec 'cypress/e2e/*'",
+    "CardTests": "npx cypress run --spec 'cypress/e2e/CardTests.cy.ts'",
+    "LoginAndRegistrationTests": "npx cypress run --spec 'cypress/e2e/LoginAndRegistrationTests.cy.ts'",
+    "SearchAndFilterTests": "npx cypress run --spec 'cypress/e2e/SearchAndFilterTests.cy.ts'"
   },
   "keywords": [],
   "author": "",
