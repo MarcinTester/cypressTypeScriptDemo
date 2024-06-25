@@ -15,7 +15,7 @@ describe("Login and registration tests", () => {
     cy.visit("/");
   });
 
-  it("Login and logout User", () => {
+  it("Search Product", () => {
     homePage.goToProductPage();
     productsPage.searchProduct(testData.product[0]);
     productsPage.clickSearchProduct();

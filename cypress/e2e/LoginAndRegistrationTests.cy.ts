@@ -30,7 +30,7 @@ describe("Login and registration tests", () => {
     homePage.elements.deleteAccountButton().should("not.exist");
   });
 
-  it("Register new user", () => {
+  it("Register and login with new user", () => {
     homePage.openSignin();
     loginPage.provideNewUser();
     loginPage.clickSignUp();
