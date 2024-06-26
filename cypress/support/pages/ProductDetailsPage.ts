@@ -8,11 +8,11 @@ class ProductDetailsPage {
   };
 
   clickAddToCardButton() {
-    this.elements.addToCardButton().click()
+    this.elements.addToCardButton().click();
   }
 
   clickViewCardButton() {
-    this.elements.viewCardButton().click()
+    this.elements.viewCardButton().click();
   }
 }
 

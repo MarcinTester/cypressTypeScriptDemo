@@ -20,7 +20,7 @@ class RegistrationPage {
   };
 
   clickContinue() {
-    this.elements.continueButton().click()
+    this.elements.continueButton().click();
   }
 
   selectCountry(country: string) {

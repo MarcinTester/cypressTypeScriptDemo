@@ -6,9 +6,8 @@ class CardPage {
   };
 
   clickRemoveButton() {
-    this.elements.removeButton().click()
+    this.elements.removeButton().click();
   }
-
 }
 
 export default CardPage;

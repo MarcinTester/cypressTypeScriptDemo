@@ -9,39 +9,38 @@ class ProductsPage {
     title: () => cy.get(".title"),
     productCart: () => cy.get("[class='single-products']"),
     dropdownWomanCategory: () => cy.get("[href='#Women']"),
-    WomanCategory: () => cy.get("#Women > .panel-body > ul > :nth-child(1) > a"),
-    //addToCartButton: () => cy.contains("Add to cart"),
+    womanCategory: () =>
+      cy.get("#Women > .panel-body > ul > :nth-child(1) > a"),
     addToCartButton: () => cy.get(".productinfo > .btn"),
     continueShoppingButton: () => cy.get("[data-dismiss='modal']"),
-
   };
-  
+
   clickContinueShoppingButton() {
-    this.elements.continueShoppingButton().click()
+    this.elements.continueShoppingButton().click();
   }
 
   clickWomanCategory() {
-    this.elements.WomanCategory().click()
+    this.elements.womanCategory().click();
   }
 
   openWomanCategoryDropdown() {
-    this.elements.dropdownWomanCategory().click()
+    this.elements.dropdownWomanCategory().click();
   }
 
   clickHmFileter() {
-    this.elements.hmFileter().click()
+    this.elements.hmFileter().click();
   }
-  
+
   clickViewProductButton() {
-    this.elements.viewProductButton().click()
+    this.elements.viewProductButton().click();
   }
 
   searchProduct(product: string) {
-    this.elements.searchProductTextField().type(product)
+    this.elements.searchProductTextField().type(product);
   }
 
   clickSearchProduct() {
-    this.elements.searchButton().click()
+    this.elements.searchButton().click();
   }
 }
 

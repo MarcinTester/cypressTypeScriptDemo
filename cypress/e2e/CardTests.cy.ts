@@ -49,14 +49,14 @@ describe("Card Tests", () => {
   // it.only("Add and remove product from card", () => {
   //   homePage.goToProductPage();
   //   cy.addProduct(testData.products[3])
-    // productsPage.elements.productCart().each(($el, index) => {
-    //   if ($el.text().includes(testData.products[0])) {
-    //     productsPage.elements
-    //       .addToCartButton()
-    //       .eq(index)
-    //       .click({ force: true });
-    //     productsPage.clickContinueShoppingButton();
-    //   }
-    // });
-//  });
+  // productsPage.elements.productCart().each(($el, index) => {
+  //   if ($el.text().includes(testData.products[0])) {
+  //     productsPage.elements
+  //       .addToCartButton()
+  //       .eq(index)
+  //       .click({ force: true });
+  //     productsPage.clickContinueShoppingButton();
+  //   }
+  // });
+  //  });
 });
