@@ -34,7 +34,7 @@ describe("Login and registration tests", () => {
     homePage.elements.deleteAccountButton().should("not.exist");
   });
 
-  it.only("Register and login with new user", () => {
+  it("Register and login with new user", () => {
     homePage.openSignin();
     loginPage.provideNewUser();
     loginPage.clickSignUp();
@@ -83,5 +83,17 @@ describe("Login and registration tests", () => {
         homePage.elements.deleteAccountButton().should("be.visible");
       });
     });
+  });
+
+  it("Fail test on purpose", () => {
+    cy.login(testData.email, testData.password);
+
+    homePage.elements.logoutButton().should("be.visible");
+    homePage.elements.deleteAccountButton().should("be.visible");
+    homePage.elements
+      .loggenAsText()
+      .should("not.be.visible")
+      .and("have.text", testData.name);
+
   });
 });

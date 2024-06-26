@@ -5,16 +5,6 @@ const homePage = new HomePage();
 const loginPage = new LoginPage();
 const productsPage = new ProductsPage();
 
-declare global {
-  namespace Cypress {
-    interface Chainable {
-      createUserName(): Chainable<string>;
-      createPassword(): Chainable<string>;
-      login(email: string, password: string): Chainable<void>;
-      addProduct(product: string): Chainable<void>;
-    }
-  }
-}
 Cypress.Commands.add("createUserName", (): Cypress.Chainable<string> => {
   let result = "";
   for (let i = 0; i < 5; i++) {
@@ -51,3 +41,5 @@ Cypress.Commands.add("addProduct", (product: string) => {
     }
   });
 });
+
+export {};
