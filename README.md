@@ -2,6 +2,7 @@
 
 Project contains automated tests of web page https://automationexercise.com/ with use of Cypress.
 
+### Github actions
 Tests are executed by Github actions after every push to repo.
 
 Automates test cases:
