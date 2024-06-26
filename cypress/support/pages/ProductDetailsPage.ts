@@ -5,7 +5,6 @@ class ProductDetailsPage {
     popUpTitle: () => cy.get(".modal-title"),
     popUpMessage: () => cy.get(".modal-body > :nth-child(1)"),
     viewCardButton: () => cy.get("u"),
-    productName: () => cy.get(".productinfo > p"),
   };
 
   clickAddToCardButton() {

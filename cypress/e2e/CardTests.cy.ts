@@ -17,12 +17,12 @@ describe("Card Tests", () => {
 
   beforeEach(function () {
     cy.visit("/");
-    cy.login(testData.email, testData.password);
   });
 
   it("Add and remove product from card", () => {
+    cy.login(testData.email, testData.password);
     homePage.goToProductPage();
-    productsPage.searchProduct(testData.product[0]);
+    productsPage.searchProduct(testData.products[0]);
     productsPage.clickSearchProduct();
     productsPage.clickViewProductButton();
     productDetailsPage.clickAddToCardButton();
@@ -37,7 +37,7 @@ describe("Card Tests", () => {
     productDetailsPage.clickViewCardButton();
     cardPage.elements
       .productsDescription()
-      .should("contain", testData.product[0]);
+      .should("contain", testData.products[0]);
 
     cardPage.elements.productImage().should("be.visible");
     cardPage.clickRemoveButton();
@@ -45,4 +45,18 @@ describe("Card Tests", () => {
     cardPage.elements.productImage().should("not.exist");
     cardPage.elements.productsDescription().should("not.exist");
   });
+
+  // it.only("Add and remove product from card", () => {
+  //   homePage.goToProductPage();
+  //   cy.addProduct(testData.products[3])
+    // productsPage.elements.productCart().each(($el, index) => {
+    //   if ($el.text().includes(testData.products[0])) {
+    //     productsPage.elements
+    //       .addToCartButton()
+    //       .eq(index)
+    //       .click({ force: true });
+    //     productsPage.clickContinueShoppingButton();
+    //   }
+    // });
+//  });
 });

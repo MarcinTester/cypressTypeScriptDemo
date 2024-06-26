@@ -15,28 +15,42 @@ describe("Login and registration tests", () => {
     cy.visit("/");
   });
 
-  it("Search Product", () => {
+  it("Search product", () => {
     homePage.goToProductPage();
-    productsPage.searchProduct(testData.product[0]);
+    productsPage.searchProduct(testData.products[0]);
     productsPage.clickSearchProduct();
 
     productsPage.elements
       .productName()
       .should("be.visible")
-      .and("have.text", testData.product[0]);
+      .and("have.text", testData.products[0]);
 
     productsPage.elements.productName().should("be.visible");
   });
-  
+
   it("Filter products", () => {
     homePage.goToProductPage();
-    productsPage.searchProduct(testData.product[0]);
-    productsPage.clickSearchProduct();
+    productsPage.clickHmFileter();
+    productsPage.elements.title().should("have.text", testData.hmTitle);
 
-    productsPage.elements
-      .productName()
-      .should("not.be.visible")
-      .and("have.text", testData.product[0]);
+    testData.hmProducts.forEach(function (product: string) {
+      productsPage.elements
+        .productCart()
+        .contains(product)
+        .should("be.visible")
+        .and("have.text", product);
+    });
+    productsPage.openWomanCategoryDropdown();
+    productsPage.clickWomanCategory();
 
-  })
+    productsPage.elements.title().should("have.text", testData.womenDressTitle);
+
+    testData.womenDressProducts.forEach(function (product: string) {
+      productsPage.elements
+        .productCart()
+        .contains(product)
+        .should("be.visible")
+        .and("have.text", product);
+    });
+  });
 });
