@@ -9,6 +9,7 @@ declare global {
   namespace Cypress {
     interface Chainable {
       createUserName(): Chainable<string>;
+      createPassword(): Chainable<string>;
       login(email: string, password: string): Chainable<void>;
       addProduct(product: string): Chainable<void>;
     }
@@ -21,6 +22,17 @@ Cypress.Commands.add("createUserName", (): Cypress.Chainable<string> => {
   }
   result = String(result);
   console.log("result " + result);
+  return cy.wrap(result);
+});
+
+Cypress.Commands.add("createPassword", (): Cypress.Chainable<string> => {
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let result = "";
+  const length = 8; 
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  console.log("Generated password: " + result);
   return cy.wrap(result);
 });
 

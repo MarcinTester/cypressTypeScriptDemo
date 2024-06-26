@@ -17,7 +17,37 @@ class RegistrationPage {
     companyTestField: () => cy.get('[data-qa="company"]'),
     caountryDropDown: () => cy.get('[data-qa="country"]'),
     continueButton: () => cy.get('[data-qa="continue-button"]'),
+    mrCheckbox: () => cy.get("#id_gender1"),
+    dayDropdown: () => cy.get('[data-qa="days"]'),
+    monthDropdown: () => cy.get('[data-qa="months"]'),
+    yearDropdown: () => cy.get('[data-qa="years"]'),
+    newsletterCheckbox: () => cy.get("#newsletter"),
+    specialOffersCheckbox: () => cy.get("#optin"),
   };
+
+  checkSpecialOffers() {
+    this.elements.specialOffersCheckbox().check();
+  }
+
+  checkNewsletter() {
+    this.elements.newsletterCheckbox().check();
+  }
+
+  selectYear(year: string) {
+    this.elements.yearDropdown().select(year);
+  }
+
+  selectMonth(month: string) {
+    this.elements.monthDropdown().select(month);
+  }
+
+  selectDay(day: string) {
+    this.elements.dayDropdown().select(day);
+  }
+
+  clickMrCheckbox() {
+    this.elements.mrCheckbox().click();
+  }
 
   clickContinue() {
     this.elements.continueButton().click();
@@ -33,6 +63,13 @@ class RegistrationPage {
 
   providePassword(password: string) {
     this.elements.passwordTextField().type(password);
+  }
+
+  provideUniquePassword() {
+    cy.createPassword().then((result) => {
+      cy.log("password: " + result);
+      this.providePassword(result);
+    });
   }
 
   provideFirstName(firstName: string) {

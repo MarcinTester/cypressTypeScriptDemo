@@ -15,42 +15,32 @@ describe("Login and registration tests", () => {
     cy.visit("/");
   });
 
-  it("Search product", () => {
+  it("Search products", () => {
     homePage.goToProductPage();
-    productsPage.searchProduct(testData.products[0]);
-    productsPage.clickSearchProduct();
+    testData.products.forEach(function (product: string) {
+      productsPage.clearSearch();
+      productsPage.searchProduct(product);
+      productsPage.clickSearchProduct();
 
-    productsPage.elements
-      .productName()
-      .should("be.visible")
-      .and("have.text", testData.products[0]);
-
-    productsPage.elements.productName().should("be.visible");
+      productsPage.elements.productCart().should("be.visible");
+      productsPage.elements
+        .productName()
+        .should("be.visible")
+        .and("have.text", product);
+    });
   });
 
   it("Filter products", () => {
     homePage.goToProductPage();
     productsPage.clickHmFileter();
+    productsPage.checkVisibleProducts(testData.hmProducts);
+
     productsPage.elements.title().should("have.text", testData.hmTitle);
 
-    testData.hmProducts.forEach(function (product: string) {
-      productsPage.elements
-        .productCart()
-        .contains(product)
-        .should("be.visible")
-        .and("have.text", product);
-    });
     productsPage.openWomanCategoryDropdown();
     productsPage.clickWomanCategory();
+    productsPage.checkVisibleProducts(testData.womenDressProducts);
 
     productsPage.elements.title().should("have.text", testData.womenDressTitle);
-
-    testData.womenDressProducts.forEach(function (product: string) {
-      productsPage.elements
-        .productCart()
-        .contains(product)
-        .should("be.visible")
-        .and("have.text", product);
-    });
   });
 });

@@ -5,6 +5,7 @@ declare global {
       createUserName(): Chainable<string>;
       login(email: string, password: string): Chainable<void>;
       addProduct(product: string): Chainable<void>;
+      createPassword(): Chainable<string>;
     }
   }
 }

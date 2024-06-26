@@ -9,11 +9,20 @@ class ProductsPage {
     title: () => cy.get(".title"),
     productCart: () => cy.get("[class='single-products']"),
     dropdownWomanCategory: () => cy.get("[href='#Women']"),
-    womanCategory: () =>
-      cy.get("#Women > .panel-body > ul > :nth-child(1) > a"),
+    womanCategory: () => cy.get("#Women > .panel-body > ul > :nth-child(1) > a"),
     addToCartButton: () => cy.get(".productinfo > .btn"),
     continueShoppingButton: () => cy.get("[data-dismiss='modal']"),
   };
+
+  checkVisibleProducts(products: string[]) {
+    products.forEach((product: string) => {
+      this.elements
+        .productCart()
+        .contains(product)
+        .should("be.visible")
+        .and("have.text", product);
+    });
+  }
 
   clickContinueShoppingButton() {
     this.elements.continueShoppingButton().click();
@@ -33,6 +42,10 @@ class ProductsPage {
 
   clickViewProductButton() {
     this.elements.viewProductButton().click();
+  }
+
+  clearSearch() {
+    this.elements.searchProductTextField().clear();
   }
 
   searchProduct(product: string) {

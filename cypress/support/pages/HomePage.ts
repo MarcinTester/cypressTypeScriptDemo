@@ -5,7 +5,8 @@ class HomePage {
     deleteAccountButton: () => cy.contains("Delete Account"),
     userNameText: () => cy.get("b"),
     productsPage: () => cy.contains("Products"),
-  };
+    loggenAsText: () => cy.get("[class='nav navbar-nav'] > li > a > b"),
+  }
 
   goToProductPage() {
     this.elements.productsPage().click();

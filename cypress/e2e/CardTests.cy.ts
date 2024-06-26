@@ -17,10 +17,10 @@ describe("Card Tests", () => {
 
   beforeEach(function () {
     cy.visit("/");
+    cy.login(testData.email, testData.password);
   });
 
   it("Add and remove product from card", () => {
-    cy.login(testData.email, testData.password);
     homePage.goToProductPage();
     productsPage.searchProduct(testData.products[0]);
     productsPage.clickSearchProduct();
@@ -45,18 +45,4 @@ describe("Card Tests", () => {
     cardPage.elements.productImage().should("not.exist");
     cardPage.elements.productsDescription().should("not.exist");
   });
-
-  // it.only("Add and remove product from card", () => {
-  //   homePage.goToProductPage();
-  //   cy.addProduct(testData.products[3])
-  // productsPage.elements.productCart().each(($el, index) => {
-  //   if ($el.text().includes(testData.products[0])) {
-  //     productsPage.elements
-  //       .addToCartButton()
-  //       .eq(index)
-  //       .click({ force: true });
-  //     productsPage.clickContinueShoppingButton();
-  //   }
-  // });
-  //  });
 });

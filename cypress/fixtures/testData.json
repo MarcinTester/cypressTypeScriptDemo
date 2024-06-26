@@ -1,21 +1,49 @@
 {
   "email": "61559@gmial.com",
+  "name": "61559",
   "password": "test1234!",
+  "incorectPassword": "DSADFGDSA23",
   "firstName": "John",
   "lastName": "Nowak",
+  "birthDateDay": "11",
+  "birthDateMonth": "July",
+  "birthDateYear": "1990",
   "address": "Test Address 1",
   "state": "Test state",
   "zipCode": "99-999",
   "city": "New York",
   "phoneNumber": "999 999 999 999 999",
   "company": "test company name",
-  "country": ["India", "United States", "Canada", "Australia", "Israel", "New Zealand", "Singapore"],
+  "country": [
+    "India",
+    "United States",
+    "Canada",
+    "Australia",
+    "Israel",
+    "New Zealand",
+    "Singapore"
+  ],
   "accountCreatedHeader": "Account Created!",
-  "products": ["Soft Stretch Jeans", "Blue Top", "Men Tshirt", "Summer White Top"],
-  "womenDressProducts": ["Sleeveless Dress","Stylish Dress","Rose Pink Embroidered Maxi Dress"],
+  "products": [
+    "Soft Stretch Jeans",
+    "Blue Top",
+    "Men Tshirt",
+    "Summer White Top"
+  ],
+  "womenDressProducts": [
+    "Sleeveless Dress",
+    "Stylish Dress",
+    "Rose Pink Embroidered Maxi Dress"
+  ],
   "womenDressTitle": "Women - Dress Products",
   "hmTitle": "Brand - H&M Products",
-  "hmProducts": ["Men Tshirt","Summer White Top","Pure Cotton V-Neck T-Shirt","Pure Cotton Neon Green Tshirt","Regular Fit Straight Jeans"],
+  "hmProducts": [
+    "Men Tshirt",
+    "Summer White Top",
+    "Pure Cotton V-Neck T-Shirt",
+    "Pure Cotton Neon Green Tshirt",
+    "Regular Fit Straight Jeans"
+  ],
   "productAddedPopUpTitle": "Added!",
   "productAddedPopUpMessage": "Your product has been added to cart."
 }

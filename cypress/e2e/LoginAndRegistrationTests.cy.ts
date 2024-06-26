@@ -18,11 +18,15 @@ describe("Login and registration tests", () => {
     cy.visit("/");
   });
 
-  it("Login and logout User", () => {
+  it("Login and logout with existing User", () => {
     cy.login(testData.email, testData.password);
 
     homePage.elements.logoutButton().should("be.visible");
     homePage.elements.deleteAccountButton().should("be.visible");
+    homePage.elements
+      .loggenAsText()
+      .should("be.visible")
+      .and("have.text", testData.name);
 
     homePage.clickLogoutButton();
     homePage.elements.signinButton().should("be.visible");
@@ -30,11 +34,23 @@ describe("Login and registration tests", () => {
     homePage.elements.deleteAccountButton().should("not.exist");
   });
 
-  it("Register and login with new user", () => {
+  it.only("Register and login with new user", () => {
     homePage.openSignin();
     loginPage.provideNewUser();
     loginPage.clickSignUp();
+    registrationPage.clickMrCheckbox();
     registrationPage.providePassword(testData.password);
+    registrationPage.selectDay(testData.birthDateDay);
+    registrationPage.selectMonth(testData.birthDateMonth);
+    registrationPage.selectYear(testData.birthDateYear);
+    registrationPage.checkNewsletter();
+
+    registrationPage.elements.newsletterCheckbox().should("be.checked");
+
+    registrationPage.checkSpecialOffers();
+
+    registrationPage.elements.specialOffersCheckbox().should("be.checked");
+
     registrationPage.provideFirstName(testData.firstName);
     registrationPage.provideLastName(testData.lastName);
     registrationPage.proviceCompany(testData.company);
@@ -58,10 +74,14 @@ describe("Login and registration tests", () => {
     homePage.getLoggedUserName().then((newUser: string) => {
       cy.log(newUser);
       homePage.clickLogoutButton();
-      cy.login(newUser + "@gmial.com", testData.password);
+      cy.login(newUser + "@gmial.com", testData.password).then(() => {
+        homePage.elements
+          .loggenAsText()
+          .should("be.visible")
+          .and("have.text", newUser);
+        homePage.elements.logoutButton().should("be.visible");
+        homePage.elements.deleteAccountButton().should("be.visible");
+      });
     });
-
-    homePage.elements.logoutButton().should("be.visible");
-    homePage.elements.deleteAccountButton().should("be.visible");
   });
 });
