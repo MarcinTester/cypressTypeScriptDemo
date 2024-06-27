@@ -53,7 +53,7 @@ describe("Login and registration tests", () => {
 
     registrationPage.provideFirstName(testData.firstName);
     registrationPage.provideLastName(testData.lastName);
-    registrationPage.proviceCompany(testData.company)
+    registrationPage.proviceCompany(testData.company);
     registrationPage.provideAddress(testData.address);
     registrationPage.selectCountry(testData.country[1]);
     registrationPage.provideState(testData.state);
@@ -64,7 +64,9 @@ describe("Login and registration tests", () => {
 
     registrationPage.elements
       .accountCreatedMessage()
-      .should("have.text", testData.accountCreatedHeader);
+      .should("have.text", testData.accountCreatedHeader)
+      .and("have.css", "color", "rgb(0, 128, 0)")
+      .and("have.css", "font-size", "18px");
 
     registrationPage.clickContinue();
 
