@@ -12,6 +12,7 @@ Automates test cases:
 - Register and login with new user
 - Search products
 - Filter products
+- Fail test on purpose -> Test that always fails for raport testing
 
 Requrements:
 Install Node.js
