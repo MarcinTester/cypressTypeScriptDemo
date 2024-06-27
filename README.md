@@ -8,9 +8,9 @@ Tests are executed by Github actions after every push to repo.
 Automates test cases:
 
 - Add and remove product from card
-- Login and logout User
+- Login and logout with existing User
 - Register and login with new user
-- Search product
+- Search products
 - Filter products
 
 Requrements:
