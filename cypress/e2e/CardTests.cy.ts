@@ -25,14 +25,21 @@ describe("Card Tests", () => {
     productsPage.searchProduct(testData.products[0]);
     productsPage.clickSearchProduct();
     productsPage.clickViewProductButton();
+    productDetailsPage.elements
+      .addToCardButton()
+      .should("be.visible")
+      .and("have.css", "color", "rgb(255, 255, 255)")
+      .and("have.css", "font-size", "15px");
     productDetailsPage.clickAddToCardButton();
 
     productDetailsPage.elements
       .popUpTitle()
-      .should("have.text", testData.productAddedPopUpTitle);
+      .should("have.text", testData.productAddedPopUpTitle)
+      .and("be.visible");
     productDetailsPage.elements
       .popUpMessage()
-      .should("have.text", testData.productAddedPopUpMessage);
+      .should("have.text", testData.productAddedPopUpMessage)
+      .and("be.visible");
 
     productDetailsPage.clickViewCardButton();
     cardPage.elements

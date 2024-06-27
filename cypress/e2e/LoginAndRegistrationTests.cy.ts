@@ -53,7 +53,7 @@ describe("Login and registration tests", () => {
 
     registrationPage.provideFirstName(testData.firstName);
     registrationPage.provideLastName(testData.lastName);
-    registrationPage.proviceCompany(testData.company);
+    registrationPage.proviceCompany(testData.company)
     registrationPage.provideAddress(testData.address);
     registrationPage.selectCountry(testData.country[1]);
     registrationPage.provideState(testData.state);

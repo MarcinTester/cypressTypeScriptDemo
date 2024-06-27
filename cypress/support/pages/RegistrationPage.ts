@@ -54,15 +54,24 @@ class RegistrationPage {
   }
 
   selectCountry(country: string) {
-    this.elements.caountryDropDown().select(country);
+    this.elements
+      .caountryDropDown()
+      .select(country)
+      .should("have.value", country);
   }
 
   proviceCompany(company: string) {
-    this.elements.companyTestField().type(company);
+    this.elements
+      .companyTestField()
+      .type(company)
+      .should("have.value", company);
   }
 
   providePassword(password: string) {
-    this.elements.passwordTextField().type(password);
+    this.elements
+      .passwordTextField()
+      .type(password)
+      .should("have.value", password);
   }
 
   provideUniquePassword() {
@@ -73,31 +82,46 @@ class RegistrationPage {
   }
 
   provideFirstName(firstName: string) {
-    this.elements.firstNameTextField().type(firstName);
+    this.elements
+      .firstNameTextField()
+      .type(firstName)
+      .should("have.value", firstName);
   }
 
   provideLastName(lastName: string) {
-    this.elements.lastNameTextField().type(lastName);
+    this.elements
+      .lastNameTextField()
+      .type(lastName)
+      .should("have.value", lastName);
   }
 
   provideAddress(address: string) {
-    this.elements.addressTextField().type(address);
+    this.elements
+      .addressTextField()
+      .type(address)
+      .should("have.value", address);
   }
 
   provideState(state: string) {
-    this.elements.stateTestField().type(state);
+    this.elements.stateTestField().type(state).should("have.value", state);
   }
 
   provideZipCode(zipCode: string) {
-    this.elements.zipcodeTextField().type(zipCode);
+    this.elements
+      .zipcodeTextField()
+      .type(zipCode)
+      .should("have.value", zipCode);
   }
 
   provideCity(zipCode: string) {
-    this.elements.cityTextField().type(zipCode);
+    this.elements.cityTextField().type(zipCode).should("have.value", zipCode);
   }
 
   providePhoneNumber(phoneNumber: string) {
-    this.elements.phoneNumberTextField().type(phoneNumber);
+    this.elements
+      .phoneNumberTextField()
+      .type(phoneNumber)
+      .should("have.value", phoneNumber);
   }
 
   clickCreateAccount() {
