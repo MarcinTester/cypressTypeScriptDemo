@@ -5,6 +5,16 @@ const homePage = new HomePage();
 const loginPage = new LoginPage();
 const productsPage = new ProductsPage();
 
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      createUserName(): Chainable<string>;
+      createPassword(): Chainable<string>;
+      login(email: string, password: string): Chainable<void>;
+      addProduct(product: string): Chainable<void>;
+    }
+  }
+}
 Cypress.Commands.add("createUserName", (): Cypress.Chainable<string> => {
   let result = "";
   for (let i = 0; i < 5; i++) {
@@ -16,9 +26,10 @@ Cypress.Commands.add("createUserName", (): Cypress.Chainable<string> => {
 });
 
 Cypress.Commands.add("createPassword", (): Cypress.Chainable<string> => {
-  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   let result = "";
-  const length = 8; 
+  const length = 8;
   for (let i = 0; i < length; i++) {
     result += characters.charAt(Math.floor(Math.random() * characters.length));
   }
@@ -41,5 +52,3 @@ Cypress.Commands.add("addProduct", (product: string) => {
     }
   });
 });
-
-export {};

@@ -94,6 +94,5 @@ describe("Login and registration tests", () => {
       .loggenAsText()
       .should("not.be.visible")
       .and("have.text", testData.name);
-
   });
 });
